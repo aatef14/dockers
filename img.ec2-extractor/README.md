@@ -182,4 +182,7 @@ Or with a custom filename:
 ec2-report "your_custom_filename"
 ```
 
-To make the alias permanent, add it to your `~/.bashrc` file. 
+To make the alias permanent, add it to your `~/.bashrc` file.
+
+License
+NO-COPYRIGHT FREECENSE 
