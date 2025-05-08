@@ -81,13 +81,28 @@ This will create a file named `your_custom_filename.xlsx` in the `ec2_reports` d
 
 #### 1. With Default Filename (Auto-generated with timestamp)
 ```bash
-docker run --rm --network host -v $(pwd)/reports:/app/ec2_reports -e AWS_CONTAINER_CREDENTIALS_FULL_URI=$AWS_CONTAINER_CREDENTIALS_FULL_URI -e AWS_CONTAINER_AUTHORIZATION_TOKEN=$AWS_CONTAINER_AUTHORIZATION_TOKEN -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION aatef14/ec2-report:03
+docker run \
+--rm \
+--network host \
+-v $(pwd)/reports:/app/ec2_reports \
+-e AWS_CONTAINER_CREDENTIALS_FULL_URI=$AWS_CONTAINER_CREDENTIALS_FULL_URI \
+-e AWS_CONTAINER_AUTHORIZATION_TOKEN=$AWS_CONTAINER_AUTHORIZATION_TOKEN  \
+-e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
+aatef14/ec2-report:03
 ```
 This will create a file named `ec2_details_YYYYMMDD_HHMMSS.xlsx` in your local `reports` directory and remove the container after execution.
 
 #### 2. With Custom Filename
 ```bash
-docker run --rm --network host -v $(pwd)/reports:/app/ec2_reports -e AWS_CONTAINER_CREDENTIALS_FULL_URI=$AWS_CONTAINER_CREDENTIALS_FULL_URI -e AWS_CONTAINER_AUTHORIZATION_TOKEN=$AWS_CONTAINER_AUTHORIZATION_TOKEN -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION aatef14/ec2-report:03 "your_custom_filename"
+docker run \
+ --rm \
+--network host \
+-v $(pwd)/reports:/app/ec2_reports \
+-e AWS_CONTAINER_CREDENTIALS_FULL_URI=$AWS_CONTAINER_CREDENTIALS_FULL_URI \
+-e AWS_CONTAINER_AUTHORIZATION_TOKEN=$AWS_CONTAINER_AUTHORIZATION_TOKEN \
+-e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
+aatef14/ec2-report:03 \
+"your_custom_filename"
 ```
 This will create a file named `your_custom_filename.xlsx` in your local `reports` directory and remove the container after execution.
 
@@ -100,7 +115,14 @@ python ec2_details_to_excel.py
 # Output: ec2_reports/ec2_details_20240315_123456.xlsx
 
 # Docker
-docker run --rm --network host -v $(pwd)/reports:/app/ec2_reports -e AWS_CONTAINER_CREDENTIALS_FULL_URI=$AWS_CONTAINER_CREDENTIALS_FULL_URI -e AWS_CONTAINER_AUTHORIZATION_TOKEN=$AWS_CONTAINER_AUTHORIZATION_TOKEN -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION aatef14/ec2-report:03
+docker run \
+--rm \
+--network host \
+-v $(pwd)/reports:/app/ec2_reports \
+-e AWS_CONTAINER_CREDENTIALS_FULL_URI=$AWS_CONTAINER_CREDENTIALS_FULL_URI \
+-e AWS_CONTAINER_AUTHORIZATION_TOKEN=$AWS_CONTAINER_AUTHORIZATION_TOKEN \
+-e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
+aatef14/ec2-report:03 
 # Output: reports/ec2_details_20240315_123456.xlsx
 ```
 
